@@ -372,3 +372,145 @@ int main(){
     }while(i!=0);
     return 0;
 }
+
+
+
+
+
+
+// #include<stdio.h>
+// #include<conio.h>
+// #include<windows.h>
+// void CursorJump(int x,int y)  
+// {
+//     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+//     COORD pos;
+//     pos.X = x;
+//     pos.Y = y;
+//     SetConsoleCursorPosition(handle,pos);
+// } 
+// //定义隐藏光标函数
+// void HideCursor()
+// {
+//     CONSOLE_CURSOR_INFO cursor;    
+//     cursor.bVisible = FALSE;    
+//     cursor.dwSize = sizeof(cursor);    
+//     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);    
+//     SetConsoleCursorInfo(handle, &cursor);
+// } 
+// int li[4]={0};
+// int zhu[3][6]={{0},{0},{0}};
+// void Init(int n)
+// {
+// 	int i,j;
+// 	li[1]=n;
+// 	for(i=0;i<n;i++)
+// 	{
+// 		zhu[1][i]=n-i;
+// 	}
+// 	for(i=4;i>=0;i--)
+// 	{
+// 		if(i!=4)
+// 		    printf("\n");
+// 		for(j=0;j<=40;j++)
+// 		{
+// 			if (j == 1 || j == 19 || j == 31) 
+//             {
+//                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 1);
+//                 printf("|");
+//             }
+//             else if (j < li[1] && abs(j - 7) <= zhu[1][i]) 
+//             {
+//                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+//                 printf("*");
+//             }
+//             else if (j < li[2] && abs(j - 19) <= zhu[2][i]) 
+//             {
+//                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+//                 printf("*");
+//             }
+//             else if (j < li[3] && abs(j - 31) <= zhu[3][i])
+//             {
+//                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+//                 printf("*");
+//             }
+//             else
+//             {
+//                 printf(" "); 
+//             }
+// 		}
+// 	}
+// 	printf("\n");
+// 	for(j=0;j<=40;j++)
+// 	{
+// 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),3);
+// 				printf("_");
+// 	}
+//     printf("\n");
+// }
+// void move(int x,int y)
+// {
+// 	int t,i,j;
+// 	t=zhu[x][li[x]-1];
+// 	zhu[x][li[x]-1]=0;
+// 	zhu[y][li[y]]=t;
+// 	li[x]--;
+// 	li[y]++;
+// 	system("cls");
+// 	for(j=4;j>=0;j--)
+// 	{
+// 	    for( i = 0 ;i <= 40 ;i++ )
+// 		{
+// 		    if( i == 7 || i == 19 || i == 31 )
+// 				printf(" | ");
+// 			else if( j < li[1] && abs( i - 7 ) <= zhu[1][j] )
+// 				printf("*");
+// 			else if( j < li[2] && abs( i - 19 ) <= zhu[2][j] )
+// 				printf("*");
+// 			else if( j < li[3] && abs(i - 31 ) <= zhu[3][j] )
+// 				printf("*");
+// 			else
+// 				printf(" ");
+// 		}
+//         printf("\n");
+// 	}
+// 			printf("\n");
+// 			for(i=0;i<=40;i++)
+// 				printf("-");
+// 			printf("\n");
+//     Sleep(1000);
+//  } 
+
+// void hanoi(int n,int one,int two,int three)
+// {
+//     if(n==1)
+//     {
+//         move(one,three);
+//     }
+//     else
+//     {
+//         hanoi(n-1,one,two,three);
+//         move(one,two);
+//         hanoi(n-1,three,two,one);
+//         move(two,three);
+//         hanoi(n-1,one,two,three);
+//     }
+// }
+// int main()
+// {
+// 	li[2]=li[3]=0;
+// 	int n;
+// 	int a=1;
+// 	int b=2;
+// 	int c=3;
+// 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),7);
+// 	printf("请输入你选择的层数（1-5）");
+// 	scanf("%d",&n);
+//     if (n < 1 || n > 5) {
+//         printf("层数必须在1到5之间！\n");
+//         return 1; // 返回错误
+//     }
+// 	Init(n); 
+// 	hanoi(n,a,b,c);
+// 	return 0;
+//  } 
